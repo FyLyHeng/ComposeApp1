@@ -1,4 +1,4 @@
-package com.fylyheng.composeapp1.old_data.classes
+package com.fylyheng.composeapp1.classes_app.classes
 
 interface FavoriteRepository {
 

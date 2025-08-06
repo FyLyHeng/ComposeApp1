@@ -1,6 +1,6 @@
-package com.fylyheng.composeapp1.old_data.instructuors
+package com.fylyheng.composeapp1.classes_app.instructuors
 
-import com.fylyheng.composeapp1.old_data.classes.ClassSummary
+import com.fylyheng.composeapp1.classes_app.classes.ClassSummary
 
 interface InstructorRepository {
 

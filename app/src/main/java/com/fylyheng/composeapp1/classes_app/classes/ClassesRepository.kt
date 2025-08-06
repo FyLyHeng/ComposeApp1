@@ -1,6 +1,6 @@
-package com.fylyheng.composeapp1.old_data.classes
+package com.fylyheng.composeapp1.classes_app.classes
 
-import com.fylyheng.composeapp1.old_data.instructuors.InstructorSummary
+import com.fylyheng.composeapp1.classes_app.instructuors.InstructorSummary
 import java.time.LocalTime
 import java.time.format.DateTimeFormatter
 

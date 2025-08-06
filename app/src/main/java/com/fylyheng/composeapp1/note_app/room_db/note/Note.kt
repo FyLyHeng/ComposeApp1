@@ -1,4 +1,4 @@
-package com.fylyheng.composeapp1.room_db.note
+package com.fylyheng.composeapp1.note_app.room_db.note
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
@@ -12,5 +12,5 @@ data class Note(
     val description : String,
 
     @ColumnInfo(name = "note_color_background")
-    val color : String
+    val color : Int
 )

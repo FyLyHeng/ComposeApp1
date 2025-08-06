@@ -1,10 +1,10 @@
-package com.fylyheng.composeapp1.room_db
+package com.fylyheng.composeapp1.note_app.room_db
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
-import com.fylyheng.composeapp1.room_db.note.Note
+import com.fylyheng.composeapp1.note_app.room_db.note.Note
 
 @Dao
 interface AppDao {
