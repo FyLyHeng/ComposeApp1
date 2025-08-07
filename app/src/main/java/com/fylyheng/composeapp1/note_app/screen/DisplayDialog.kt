@@ -48,6 +48,8 @@ fun DisplayDialog(viewModel: NoteViewModel, showDialog: Boolean, onDismiss : () 
                     )
 
                     Spacer(modifier = Modifier.height(8.dp))
+
+                    NoteColorPicker(selectedColor =  selectedColor, onSelected = { selectedColor = it })
                 }
             },
 

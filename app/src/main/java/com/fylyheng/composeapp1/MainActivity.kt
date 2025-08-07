@@ -65,7 +65,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             ComposeApp1Theme {
 
-                Scaffold (floatingActionButton = { MyFAB(noteViewModel) }) {
+                Scaffold (floatingActionButton = { MyFAB(noteViewModel) }) { padding ->
 
                     // noteViewModel.allNotes(): invoke a function in ViewModel that returns a LiveData<List<Note>>.
                     // observeAsState(emptyList()): This converts the LiveData into a Compose State, so it can automatically recompose the UI when the data changes.
@@ -79,7 +79,7 @@ class MainActivity : ComponentActivity() {
 
 
                     // ✅ this Composable gets recomposed when `notes` changes
-                    DisplayNoteListItem(notes)
+                    DisplayNoteListItem(notes, padding)
 
                 }
 

@@ -24,8 +24,6 @@ fun NoteItem (note: Note) {
     Card(
         elevation = CardDefaults.elevatedCardElevation(12.dp),
         colors = CardDefaults.cardColors(containerColor = Color(note.color)),
-        border = BorderStroke(1.dp, Color.Black)
-
     ) {
 
         Column (
