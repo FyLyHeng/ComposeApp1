@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.viewModels
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material3.FloatingActionButton
@@ -22,6 +23,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.graphics.toColorInt
 import androidx.lifecycle.ViewModelProvider
+import com.fylyheng.composeapp1.news_app.screens.BlogPostHeaderComposable
+import com.fylyheng.composeapp1.news_app.screens.BlogPostScreen
+import com.fylyheng.composeapp1.news_app.view_model.BlogPostViewModel
 import com.fylyheng.composeapp1.note_app.room_db.AppDatabase
 import com.fylyheng.composeapp1.note_app.room_db.note.Note
 import com.fylyheng.composeapp1.note_app.room_db.note.imp.NoteRepository
@@ -38,6 +42,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
 
 
+      /* Note_APP
         //Init Room DB
         val database = AppDatabase.getInstance(applicationContext)
 
@@ -49,14 +54,14 @@ class MainActivity : ComponentActivity() {
         //init note viewModel Factory
         val noteViewModelFactory = NoteViewModelFactory(noteRepo)
 
-
         //init note viewModel
-        val noteViewModel = ViewModelProvider(this, noteViewModelFactory)[NoteViewModel::class.java]
+        val noteViewModel = ViewModelProvider(this, noteViewModelFactory)[NoteViewModel::class.java]*/
 
+        val blogPostViewModel : BlogPostViewModel by viewModels()
 
         setContent {
             ComposeApp1Theme {
-
+                /*Note_APP
                 Scaffold (floatingActionButton = { MyFAB(noteViewModel) }) { padding ->
 
                     // noteViewModel.allNotes(): invoke a function in ViewModel that returns a LiveData<List<Note>>.
@@ -73,11 +78,14 @@ class MainActivity : ComponentActivity() {
                     // ✅ this Composable gets recomposed when `notes` changes
                     DisplayNoteListItem(notes, padding)
 
+                }*/
+
+
+                //Blog_Post_APP
+                Scaffold { innerPadding->
+                    BlogPostScreen(blogPostViewModel, innerPadding)
                 }
-
-
-
-            }
+                }
         }
     }
 }

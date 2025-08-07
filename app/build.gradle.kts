@@ -66,4 +66,13 @@ dependencies {
     ksp("androidx.room:room-compiler:$room_version")
 
     implementation("androidx.compose.runtime:runtime-livedata")
+
+    implementation("com.squareup.retrofit2:retrofit:3.0.0")
+    implementation("com.squareup.retrofit2:converter-gson:3.0.0")
+
+    val lifecycle_version = "2.9.2"
+    // ViewModel utilities for Compose
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:${lifecycle_version}")
+    // LiveData
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:${lifecycle_version}")
 }
