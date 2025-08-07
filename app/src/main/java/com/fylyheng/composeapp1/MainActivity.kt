@@ -53,14 +53,6 @@ class MainActivity : ComponentActivity() {
         //init note viewModel
         val noteViewModel = ViewModelProvider(this, noteViewModelFactory)[NoteViewModel::class.java]
 
-        val note1 = Note(
-            title = "test",
-            description = "a written symbol used to indicate duration and pitch of a tone by its shape and position on the staff, a written symbol used to indicate duration and pitch of a tone by its shape and position on the staff",
-            color = "#f59597".toColorInt()
-        )
-
-        noteViewModel.insertNewNote(note1)
-
 
         setContent {
             ComposeApp1Theme {
