@@ -1,6 +1,5 @@
 package com.fylyheng.composeapp1.note_app.screen
 
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth

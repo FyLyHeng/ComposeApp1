@@ -5,7 +5,6 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.activity.viewModels
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material3.FloatingActionButton
@@ -14,25 +13,19 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.core.graphics.toColorInt
 import androidx.lifecycle.ViewModelProvider
-import com.fylyheng.composeapp1.news_app.screens.BlogPostHeaderComposable
-import com.fylyheng.composeapp1.news_app.screens.BlogPostScreen
-import com.fylyheng.composeapp1.news_app.view_model.BlogPostViewModel
-import com.fylyheng.composeapp1.note_app.room_db.AppDatabase
-import com.fylyheng.composeapp1.note_app.room_db.note.Note
-import com.fylyheng.composeapp1.note_app.room_db.note.imp.NoteRepository
+import com.fylyheng.composeapp1.movie_app.retofit.movie.MovieRepository
+import com.fylyheng.composeapp1.movie_app.screens.MovieScreen
+import com.fylyheng.composeapp1.movie_app.view_model.MovieViewModel
+import com.fylyheng.composeapp1.movie_app.view_model.MovieViewModelFactory
 import com.fylyheng.composeapp1.note_app.screen.DisplayDialog
-import com.fylyheng.composeapp1.note_app.screen.DisplayNoteListItem
 import com.fylyheng.composeapp1.note_app.view_model.NoteViewModel
-import com.fylyheng.composeapp1.note_app.view_model.NoteViewModelFactory
 import com.fylyheng.composeapp1.ui.theme.ComposeApp1Theme
 
 class MainActivity : ComponentActivity() {
@@ -57,7 +50,14 @@ class MainActivity : ComponentActivity() {
         //init note viewModel
         val noteViewModel = ViewModelProvider(this, noteViewModelFactory)[NoteViewModel::class.java]*/
 
-        val blogPostViewModel : BlogPostViewModel by viewModels()
+        //BlogPost_APP
+        //val blogPostViewModel : BlogPostViewModel by viewModels()
+
+
+        //Movie_APP
+        val movieRepository = MovieRepository()
+        val movieRepositoryFactory = MovieViewModelFactory(movieRepository)
+        val movieViewModel = ViewModelProvider(this,movieRepositoryFactory)[MovieViewModel::class.java]
 
         setContent {
             ComposeApp1Theme {
@@ -82,10 +82,15 @@ class MainActivity : ComponentActivity() {
 
 
                 //Blog_Post_APP
-                Scaffold { innerPadding->
+                /*Scaffold { innerPadding->
                     BlogPostScreen(blogPostViewModel, innerPadding)
+                }*/
+
+
+                Scaffold { innerPadding->
+                    MovieScreen(movieViewModel, innerPadding)
                 }
-                }
+            }
         }
     }
 }
