@@ -75,10 +75,13 @@ dependencies {
     implementation(libs.androidx.lifecycle.livedata.ktx)
 
     //image log async
-//    implementation(libs.coil.compose)
-    implementation("io.coil-kt:coil:2.5.0")
-    implementation("io.coil-kt:coil-compose:2.5.0")
-    // optional if you're using SVG or video support
-    implementation("io.coil-kt:coil-svg:2.5.0")
-    implementation("io.coil-kt:coil-gif:2.5.0")
+    implementation(libs.coil)
+    implementation(libs.coil.kt.coil.compose)
+    implementation(libs.coil.svg)
+    implementation(libs.coil.gif)
+
+    //DI
+    implementation (libs.koin.android)
+    implementation (libs.koin.androidx.navigation)
+    implementation (libs.koin.androidx.compose)
 }
