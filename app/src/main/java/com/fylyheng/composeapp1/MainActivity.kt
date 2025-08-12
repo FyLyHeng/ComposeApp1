@@ -20,7 +20,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.ViewModelProvider
-import com.fylyheng.composeapp1.movie_app.retofit.movie.MovieRepository
+import com.fylyheng.composeapp1.movie_app.data.movie.MovieRepository
 import com.fylyheng.composeapp1.movie_app.screens.MovieScreen
 import com.fylyheng.composeapp1.movie_app.view_model.MovieViewModel
 import com.fylyheng.composeapp1.movie_app.view_model.MovieViewModelFactory
@@ -55,7 +55,7 @@ class MainActivity : ComponentActivity() {
 
 
         //Movie_APP
-        val movieRepository = MovieRepository()
+        val movieRepository = MovieRepository(applicationContext)
         val movieRepositoryFactory = MovieViewModelFactory(movieRepository)
         val movieViewModel = ViewModelProvider(this,movieRepositoryFactory)[MovieViewModel::class.java]
 

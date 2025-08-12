@@ -1,6 +1,6 @@
-package com.fylyheng.composeapp1.movie_app.retofit
+package com.fylyheng.composeapp1.movie_app.data.retofit
 
-import com.fylyheng.composeapp1.movie_app.retofit.movie.BaseResponse
+import com.fylyheng.composeapp1.movie_app.data.movie.BaseResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 

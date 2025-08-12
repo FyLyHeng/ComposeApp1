@@ -6,9 +6,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.fylyheng.composeapp1.movie_app.retofit.movie.Movie
-import com.fylyheng.composeapp1.news_app.retrofit.blogPost.BlogPost
-import com.fylyheng.composeapp1.news_app.screens.BlogPostItem
+import com.fylyheng.composeapp1.movie_app.data.movie.Movie
 
 @Composable
 fun MovieList (movies: List<Movie>, innerPaddingValues: PaddingValues) {

@@ -6,8 +6,8 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import com.fylyheng.composeapp1.movie_app.retofit.movie.Movie
-import com.fylyheng.composeapp1.movie_app.retofit.movie.MovieRepository
+import com.fylyheng.composeapp1.movie_app.data.movie.Movie
+import com.fylyheng.composeapp1.movie_app.data.movie.MovieRepository
 import kotlinx.coroutines.launch
 
 
@@ -19,6 +19,9 @@ class MovieViewModel(repository: MovieRepository) : ViewModel() {
     var movieFromApi by mutableStateOf<List<Movie>>(emptyList())
         private set
 
+    var movieFromDB by mutableStateOf<List<Movie>>(emptyList())
+        private set
+
     init {
         viewModelScope.launch {
             try {
@@ -26,11 +29,19 @@ class MovieViewModel(repository: MovieRepository) : ViewModel() {
                 //fetch data from api
                 movieFromApi = repository.getPopularMovieFromApi()
 
+                //set all fetched movies to db offline
+                repository.insertMovieIntoDB(movieFromApi)
+
                 //update state
                 movies = movieFromApi
 
             } catch (e: Exception){
+
                 //get from room
+                movieFromDB = repository.getAllMovieFromDB()
+
+                //update movie-ui state
+                movies = movieFromDB
             }
         }
     }

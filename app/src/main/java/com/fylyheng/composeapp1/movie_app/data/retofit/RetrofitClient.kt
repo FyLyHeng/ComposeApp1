@@ -1,4 +1,4 @@
-package com.fylyheng.composeapp1.movie_app.retofit
+package com.fylyheng.composeapp1.movie_app.data.retofit
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

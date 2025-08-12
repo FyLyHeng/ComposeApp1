@@ -1,5 +1,8 @@
-package com.fylyheng.composeapp1.movie_app.retofit.movie
+package com.fylyheng.composeapp1.movie_app.data.movie
 
+import androidx.room.Entity
+import androidx.room.Ignore
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
 data class BaseResponse(
@@ -15,9 +18,12 @@ data class BaseResponse(
 
 )
 
+@Entity("movie")
 data class Movie(
 
+    @PrimaryKey
     val id: Int,
+
     val isAdult: Boolean,
     val overview: String,
 
@@ -25,12 +31,8 @@ data class Movie(
     val isVideo: Boolean,
     val popularity: Double,
 
-
     @SerializedName("backdrop_path")
     val backdropPath: String?,
-
-    @SerializedName("genre_ids")
-    val genreIds: List<Int>,
 
     @SerializedName("original_language")
     val originalLanguage: String,
