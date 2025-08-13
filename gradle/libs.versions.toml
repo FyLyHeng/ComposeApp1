@@ -51,6 +51,8 @@ koin-android = { module = "io.insert-koin:koin-android", version.ref = "koinAndr
 koin-androidx-compose = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koinAndroidxCompose" }
 koin-androidx-navigation = { module = "io.insert-koin:koin-androidx-navigation", version.ref = "koinAndroidxNavigation" }
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
+compose-ui-text-google-fonts = { module = "androidx.compose.ui:ui-text-google-fonts", version = "1.8.3" }
+
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

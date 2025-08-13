@@ -5,6 +5,11 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material3.FloatingActionButton
@@ -16,11 +21,23 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontStyle
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.fylyheng.composeapp1.note_app.screen.DisplayDialog
 import com.fylyheng.composeapp1.note_app.view_model.NoteViewModel
+import com.fylyheng.composeapp1.quiz_app.presentation.dashboard.component.UserStatisticsCard
+import com.fylyheng.composeapp1.ui.quiz_app_theme.QuizAppTheme
+import com.fylyheng.composeapp1.ui.quiz_app_theme.bodyFontFamily
+import com.fylyheng.composeapp1.ui.quiz_app_theme.displayFontFamily
 import com.fylyheng.composeapp1.ui.theme.ComposeApp1Theme
 
 class MainActivity : ComponentActivity() {
@@ -58,7 +75,7 @@ class MainActivity : ComponentActivity() {
 
 
         setContent {
-            ComposeApp1Theme {
+            //ComposeApp1Theme {
 
                 /*Note_APP
                 Scaffold (floatingActionButton = { MyFAB(noteViewModel) }) { padding ->
@@ -89,11 +106,17 @@ class MainActivity : ComponentActivity() {
                     MovieScreen(movieViewModel, innerPadding)
                 }*/
 
-                //Quiz_APP
-                Scaffold {
+            //}
 
+
+            QuizAppTheme {
+
+                //Quiz_APP
+                Scaffold { innerPadding ->
+                    //UserStatisticsCard(modifier = Modifier.padding(innerPadding))
                 }
             }
+
         }
     }
 }
@@ -102,16 +125,41 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
+    Column (modifier.fillMaxWidth(),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.SpaceEvenly
+    ) {
+        Text(
+            modifier = Modifier.fillMaxWidth(),
+            text = "Hello $name!",
+            fontSize = 23.sp,
+            textAlign = TextAlign.Center,
+            fontFamily = displayFontFamily
+        )
+
+        Text(
+            modifier = Modifier.fillMaxWidth(),
+            text = "Hello $name!",
+            textAlign = TextAlign.Center,
+            fontSize = 23.sp,
+            fontFamily = bodyFontFamily,
+        )
+    }
 }
+
 
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
-    ComposeApp1Theme {
-        Greeting("Android")
+    QuizAppTheme {
+        Greeting(modifier = Modifier, name = "fylyheng")
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun UserStatisticsPreview() {
+    QuizAppTheme {
+        UserStatisticsCard(modifier = Modifier, totalQuiz = 20, totalCorrectAnswers = 17)
     }
 }
