@@ -34,6 +34,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.fylyheng.composeapp1.note_app.screen.DisplayDialog
 import com.fylyheng.composeapp1.note_app.view_model.NoteViewModel
+import com.fylyheng.composeapp1.quiz_app.presentation.dashboard.DashboardScreen
 import com.fylyheng.composeapp1.quiz_app.presentation.dashboard.component.UserStatisticsCard
 import com.fylyheng.composeapp1.ui.quiz_app_theme.QuizAppTheme
 import com.fylyheng.composeapp1.ui.quiz_app_theme.bodyFontFamily
@@ -113,7 +114,7 @@ class MainActivity : ComponentActivity() {
 
                 //Quiz_APP
                 Scaffold { innerPadding ->
-                    //UserStatisticsCard(modifier = Modifier.padding(innerPadding))
+                    DashboardScreen(innerPadding)
                 }
             }
 
@@ -153,13 +154,5 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 fun GreetingPreview() {
     QuizAppTheme {
         Greeting(modifier = Modifier, name = "fylyheng")
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun UserStatisticsPreview() {
-    QuizAppTheme {
-        UserStatisticsCard(modifier = Modifier, totalQuiz = 20, totalCorrectAnswers = 17)
     }
 }
