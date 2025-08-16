@@ -14,15 +14,15 @@ import com.fylyheng.composeapp1.quiz_app.presentation.dashboard.component.UserSt
 import com.fylyheng.composeapp1.ui.quiz_app_theme.QuizAppTheme
 
 @Composable
-fun DashboardScreen (innerPaddingValues: PaddingValues) {
+fun DashboardScreen (innerPaddingValues: PaddingValues, state: DashboardState) {
 
     Column (modifier = Modifier.padding(innerPaddingValues)) {
 
-        UserStatisticsHeaderCard(userName = "Lyheng Phally", userRateLevel =  "Expert", totalScore =  1200)
+        UserStatisticsHeaderCard(userName = state.username, userRateLevel =  state.userLevel, totalScore =  state.userScore)
 
         Spacer(modifier = Modifier.size(16.dp))
 
-        UserStatisticsCard(totalQuiz = 20, totalCorrectAnswers = 9)
+        UserStatisticsCard(totalQuiz = state.questionAttempted, totalCorrectAnswers = state.correctAnswers)
 
     }
 
@@ -33,7 +33,7 @@ fun DashboardScreen (innerPaddingValues: PaddingValues) {
 @Composable
 fun DashboardScreensPreview() {
     QuizAppTheme {
-        DashboardScreen(PaddingValues(16.dp))
+        DashboardScreen(PaddingValues(16.dp), DashboardState())
     }
 }
 

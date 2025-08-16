@@ -44,22 +44,19 @@ fun UserStatisticsCard(modifier: Modifier= Modifier, totalQuiz: Int, totalCorrec
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.onPrimary),
     ){
 
-        Column {
+        ProgressBar(
+            modifier = Modifier.fillMaxWidth().padding(10.dp).height(15.dp),
+            gradientColors = listOf(CustomBlue,CustomPink),
+            barProgress = processBar
+        )
 
-            ProgressBar(
-                modifier = Modifier.fillMaxWidth().padding(10.dp).height(15.dp),
-                gradientColors = listOf(CustomBlue,CustomPink),
-                barProgress = processBar
-            )
-
-            Row (modifier =
-                Modifier.fillMaxWidth().padding(10.dp),
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.Absolute.SpaceBetween
-            ){
-                UseStatistics(totalQuiz,"Questions Attempted", R.drawable.outline_touch_app_24)
-                UseStatistics(totalCorrectAnswers,"Correct Answers", R.drawable.baseline_check_circle_24)
-            }
+        Row (modifier =
+            Modifier.fillMaxWidth().padding(10.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.Absolute.SpaceBetween
+        ){
+            UseStatistics(totalQuiz,"Questions Attempted", R.drawable.outline_touch_app_24)
+            UseStatistics(totalCorrectAnswers,"Correct Answers", R.drawable.baseline_check_circle_24)
         }
     }
 
